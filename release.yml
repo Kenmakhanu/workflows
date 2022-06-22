@@ -1,0 +1,40 @@
+1. Install the semantic-release on your local environment:
+    npm install --save-dev semantic-release
+
+2. Create a config file (release.config.js) in the project with the contents below:
+     release.config.js
+
+
+     module.exports = {
+       branches: "master",
+       repositoryUrl: ""https://github.com/Kenmakhanu/workflows.git","
+       plugins: [
+           '@semantic-release/commit-analyzer',
+           '@semantic-release/release-notes-generator',
+           '@semantic-release/github']
+     }
+
+3. Add your project to the repo:
+       git add .
+
+4. Commit your project to the repo using conventional commits. Your commit messages should start with:
+
+    fix:                  ......for a patch version
+    feat:                 ......for a minor version
+    BREAKING CHANGE:      .......for a major version
+
+4. Add step in the CI workflow:
+
+
+     name: release workflow
+     on:
+        workflow_dispatch:
+
+
+     - name: Create a release
+       if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+       run: npx semantic-release
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+
+5. After the code is pushed to the repo, trigger this workflow manually to publish and create a release version.
