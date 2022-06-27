@@ -7,12 +7,12 @@ terraform {
       version = "~> 3.0" # Optional but recommended in production
     }
   }
-  backend "s3" {
+  /*backend "s3" {
     bucket = "myotherclass25bucket"
     key = "terraform/terraform.tfstate"
     #dynamodb_table = "terraform-lock"
     region = "us-west-2"
-  }
+  }*/
 } 
 
 
