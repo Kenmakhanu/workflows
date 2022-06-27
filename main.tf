@@ -13,11 +13,11 @@ terraform {
     #dynamodb_table = "terraform-lock"
     region = "us-west-2"
   }*/
-} 
+}
 
 
 ##provider block
 provider "aws" {
-  region  = var.aws_region
-  
+  region = var.aws_region
+
 }
