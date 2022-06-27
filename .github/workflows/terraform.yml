@@ -28,11 +28,11 @@ jobs:
       - name: 'Terraform Plan'
         run: terraform plan
 
-      #- name: 'Terraform Apply'
-       # run: terraform apply -auto-approve
+      - name: 'Terraform Apply'
+        run: terraform apply -auto-approve
 
-      #- name: 'Terraform Destroy'
-       # run: terraform destroy -auto-approve
+      - name: 'Terraform Destroy'
+        run: terraform destroy -auto-approve
         
       #- name: 'Upload new assets to s3'
         #uses: chrislennon/action-aws-cli@v1.1
